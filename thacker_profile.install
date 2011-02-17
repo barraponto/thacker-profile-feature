@@ -1,0 +1,11 @@
+<?php
+
+function thacker_profile() {
+  module_load_include('inc', 'thacker_profile', 'thacker_profile.strongarm');
+
+  $variables = thacker_profile_strongarm();
+
+  foreach ($variables as $variable) {
+    variable_set($variable->name, serialize($variable->value));
+  }
+}
